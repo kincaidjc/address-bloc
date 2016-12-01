@@ -11,12 +11,12 @@ class AddressBook
     def add_entry(name, phone_number, email)
         
         index = 0
-        entries.each do |entries|
+        entries.each do |entry|
             
             if name < entry.name
                 break
             end
-            index+= 1
+            index += 1
         end
         
         entries.insert(index, Entry.new(name, phone_number, email))
@@ -29,7 +29,7 @@ class AddressBook
             if name == entry.name 
                 break
             end
-            index+= 1
+            index += 1
         end
             
         entries.delete(entries[index])
