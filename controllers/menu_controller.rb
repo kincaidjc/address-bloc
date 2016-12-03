@@ -85,7 +85,7 @@ class MenuController
         puts "Enter number"
         number = gets.chomp.to_i - 1
         
-        if number < address_book.entries.size
+        if number <= address_book.entries.size
             puts address_book.entries[number]
             
             puts "Press enter to continue"
