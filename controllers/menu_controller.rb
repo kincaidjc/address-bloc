@@ -14,7 +14,8 @@ class MenuController
         puts "3 - Search for an entry"
         puts "4 - View Entry Number n"
         puts "5 - Import entries from a CSV"
-        puts "6 - Exit"
+        puts "6 - DESTROY ALL ENTRIES"
+        puts "7 - Exit"
         print "Enter your selection: "
         
         selection = gets.to_i
@@ -41,6 +42,10 @@ class MenuController
                 read_csv
                 main_menu
             when 6
+                system "clear"
+                destroy_entries
+                main_menu
+            when 7
                 puts "Good-bye!"
                 exit(0)
                 
@@ -115,7 +120,7 @@ class MenuController
     end
     
     def read_csv
-        print "Enter CSV file to import"
+        print "Enter CSV file to import: "
         file_name = gets.chomp
         
         if file_name.empty?
@@ -208,4 +213,15 @@ class MenuController
                 search_submenu(entry)
         end
     end
+    
+    def destroy_entries
+        address_book.entries.clear
+        system "clear"
+        puts "ALL ENTRIES DESTROYED"
+        puts "press enter to continue"
+        gets
+        
+    
+    end
+    
 end
